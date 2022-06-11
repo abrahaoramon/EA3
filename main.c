@@ -4,17 +4,22 @@
 
 int main()
 {
-    char Texto, *pTexto=&Texto;
-    char Palavra, *pPalavra=&Palavra;
-    char letra1='a', letra2='b';
+    char Texto[1000];
+    char Palavra[1000];
+    char letra1[10], letra2[10];
     int trocas;
 
-    printf( "Digite o texto:\n");
-    gets(pTexto);
+    printf( "\nDigite o texto:\n");
+    gets(Texto);
+    printf( "\nDigite o caracter a ser substituido e o novo caracter:\n");
+    scanf("%c %c", &letra1, letra2);  
 
-    trocas = nTrocas(pTexto, letra1, letra2, pPalavra);
-
-    printf("%d", trocas);
+    trocas = nTrocas(Texto, *letra1, *letra2, Palavra); //Função
+    printf("\nNova palavra: ");
+    puts(Palavra);
+    printf("\nPalavra inserida pelo usuario: ");
+    puts(Texto);
+    printf("\nQuantidade de caracteres substituidos: %d\n", trocas);
 
     return 0;
 
